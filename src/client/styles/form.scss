@@ -1,18 +1,23 @@
+$box-shadow: -9px -9px 16px -5px #FFFFFF, 9px 9px 16px -5px #A3B1C6;
+
 form {
   display: grid;
-  grid-template-columns: 400px;
+  grid-template-columns: 200px repeat(2, 100px);
   grid-template-rows: 20px 200px 10px;
+  grid-row-gap: 16px;
   grid-template-areas:
-    "enter-text"
-    "text-box"
-    "sub-button";
+    "enter-text . ."
+    "text-box text-box text-box"
+    ". . sub-button";
   label {
     grid-area: enter-text;
   }
   textarea {
     grid-area: text-box;
+    box-shadow: $box-shadow;
   }
   button {
     grid-area: sub-button;
+    box-shadow: $box-shadow;
   }
 }
