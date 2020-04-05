@@ -1,0 +1,20 @@
+{
+  "name": "natural-language-processing-website",
+  "version": "1.0.0",
+  "description": "## About This website was created for Udacity's Front End Developer nanodegree.  Instead of using the base code provided by Udacity, I decided to build everything from scratch.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jordan-Gillard/natural-language-processing-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jordan-Gillard/natural-language-processing-website/issues"
+  },
+  "homepage": "https://github.com/Jordan-Gillard/natural-language-processing-website#readme"
+}

@@ -1,0 +1,18 @@
+form {
+  display: grid;
+  grid-template-columns: 400px;
+  grid-template-rows: 20px 200px 10px;
+  grid-template-areas:
+    "enter-text"
+    "text-box"
+    "sub-button";
+  label {
+    grid-area: enter-text;
+  }
+  textarea {
+    grid-area: text-box;
+  }
+  button {
+    grid-area: sub-button;
+  }
+}

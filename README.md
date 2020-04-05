@@ -9,6 +9,6 @@ The website uses [AYLIEN](https://aylien.com/), a NLP API which can analyze
 bulk amounts of news articles \& free text.
 
 ## Usage
-### How to run the front-end and server
+### How to run the front-end \& server
 
 ### How to run tests
