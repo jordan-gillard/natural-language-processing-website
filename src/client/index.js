@@ -1,6 +1,6 @@
 import './styles/form.scss'
-
 require("regenerator-runtime/runtime");
+
 
 async function postData(url='http://localhost:3000/send-text', data={}) {
     const response = await fetch(url, {
@@ -16,27 +16,19 @@ async function postData(url='http://localhost:3000/send-text', data={}) {
         body: JSON.stringify(data) // body data type must match "Content-Type" header
     });
      // parses JSON response into native JavaScript objects
-    // return await response.json();
-    console.log("Response: ", response);
-    return response;
+    return await response.json();
 }
 
-
-// const submitButton = document.getElementById("sub-button");
-// submitButton.addEventListener('click', async(event) => {
 
 async function handleSubmit(event) {
     event.preventDefault();
     const textBox = document.getElementById("text-box");
     const nlpProcessedData = await postData('http://localhost:3000/send-text', {'text': textBox.value});
-    console.log("NLP Processed Data: ", nlpProcessedData);
-    console.log("NLP Processed Data JSON: ", nlpProcessedData.json());
     const nlpResponse = document.getElementById("nlp-response");
+    console.log('nlpProcessedData', nlpProcessedData);
     nlpResponse.innerText = nlpProcessedData;
 }
 
-export {
-    handleSubmit
-}
+export { handleSubmit }
 
 
