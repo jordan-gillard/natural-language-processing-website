@@ -1,5 +1,5 @@
 import './styles/form.scss'
-
+require("regenerator-runtime/runtime");
 
 async function postData(url='http://localhost:3000/send-text', data={}) {
     const response = await fetch(url, {
