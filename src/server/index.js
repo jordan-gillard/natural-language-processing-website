@@ -23,7 +23,7 @@ function getTextSentiment(text) {
 }
 
 
-app.post('/', function(req, res) {
+app.post('/send-text', function(req, res) {
     console.log(req.data);
 });
 
