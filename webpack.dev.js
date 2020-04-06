@@ -8,11 +8,13 @@ module.exports = {
     entry: "./src/client/index.js",
     output: {
         path: path.resolve(__dirname, './dist'),
-        filename: 'index_bundle.js'
+        filename: 'index_bundle.js',
+        libraryTarget: "var",
+        library: 'Client'
     },
     plugins: [new HtmlWebpackPlugin({
             template: "./src/client/views/index.html",
-            filename: './index.html'
+            filename: './index.html',
         }
     )],
     module: {
