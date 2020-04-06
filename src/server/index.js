@@ -1,7 +1,13 @@
 const AYLIENTextAPI = require('aylien_textapi');
 const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
 const app = express();
 const port = 3000;
+
+app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 const AYLIEN_APP_ID = process.env.AYLIEN_APP_ID;
 const AYLIEN_API_KEY = process.env.AYLIEN_API_KEY;
@@ -24,7 +30,7 @@ function getTextSentiment(text) {
 
 
 app.post('/send-text', function(req, res) {
-    console.log(req.data);
+    console.log(req.body);
 });
 
 app.listen(port, () => {
