@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Free Text Sentiment Analysis</title>
-    <link rel="stylesheet" href="/styles/form.css">
 </head>
 <body>
-<form>
+<form onsubmit="return Client.handleSubmit(event)">
     <label for="text-box" id="enter-text">Enter your text here:</label>
     <textarea id="text-box" cols="30" rows="10"></textarea>
-    <button type="submit" id="sub-button">Submit</button>
+    <button type="submit" id="sub-button" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">Submit</button>
 </form>
+<p id="nlp-response"></p>
 </body>
 </html>

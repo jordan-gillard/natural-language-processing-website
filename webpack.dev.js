@@ -8,15 +8,27 @@ module.exports = {
     entry: "./src/client/index.js",
     output: {
         path: path.resolve(__dirname, './dist'),
-        filename: 'index_bundle.js'
+        filename: 'index_bundle.js',
+        libraryTarget: "var",
+        library: 'Client'
     },
     plugins: [new HtmlWebpackPlugin({
             template: "./src/client/views/index.html",
-            filename: './index.html'
+            filename: './index.html',
         }
     )],
     module: {
         rules: [
+            {
+                test: /\.m?js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
+                }
+            },
             {
                 test: /\.s[ac]ss$/i,
                 use: [
