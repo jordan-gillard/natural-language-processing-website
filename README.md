@@ -46,7 +46,8 @@ npm run build-dev
 The production build will be available under `dist/dev`
 
 ### How to run tests
-In your terminal, type:
+At the moment there's only one test for one JavaScript function. If you want
+to run it, type the following in your terminal:
 ```terminal
 npm run test
 ```
