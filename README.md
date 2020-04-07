@@ -9,11 +9,18 @@ The website uses [AYLIEN](https://aylien.com/), a NLP API which can analyze
 bulk amounts of news articles \& free text.
 
 ## Usage
+### Install dependencies
+In your terminal, type:
+```terminal
+npm install package.json
+```
+
 ### How to run the backend server
 In your terminal, type:
 ```terminal
 npm run start-backend
 ```
+
 ### How to start the dev server
 In your terminal, type:
 ```terminal
