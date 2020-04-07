@@ -9,15 +9,33 @@ The website uses [AYLIEN](https://aylien.com/), a NLP API which can analyze
 bulk amounts of news articles \& free text.
 
 ## Usage
-### How to run the server
+### How to run the backend server
 In your terminal, type:
 ```terminal
-npm run start-server
+npm run start-backend
 ```
-### How to run the dev server
+### How to start the dev server
+In your terminal, type:
+```terminal
+npm run start-dev-server
+```
+This will automatically open a webpage with index.html open. The dev build 
+will be available under `dist/dev`
+
+### How to create production build
+In your terminal, type:
+```terminal
+npm run build-prod
+```
+The production build will be available under `dist/prod`
+
+### How to create development build
+In case you don't want to use the development server, you can create the 
+dev build this way.
 In your terminal, type:
 ```terminal
 npm run build-dev
 ```
+The production build will be available under `dist/dev`
 
 ### How to run tests
