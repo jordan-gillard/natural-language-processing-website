@@ -46,3 +46,7 @@ npm run build-dev
 The production build will be available under `dist/dev`
 
 ### How to run tests
+In your terminal, type:
+```terminal
+npm run test
+```
