@@ -1,5 +1,7 @@
-function buildTable(nlpProcessedData) {
-    const nlpResponse = document.getElementById("nlp-response");
+function buildTable(nlpProcessedData, element=null) {
+    if (element === null) {
+        element = document.getElementById("nlp-response");
+    }
     for (const [key, value] of Object.entries(nlpProcessedData)) {
         let newTableRow = document.createElement('tr');
         let tableKey = document.createElement('td');
@@ -7,8 +9,9 @@ function buildTable(nlpProcessedData) {
         tableKey.innerText = key;
         tableVal.innerText = value;
         newTableRow.append(tableKey, tableVal);
-        nlpResponse.appendChild(newTableRow);
+        element.appendChild(newTableRow);
     }
+    return element;
 }
 
 export { buildTable }
