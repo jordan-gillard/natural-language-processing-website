@@ -14,10 +14,10 @@ In your terminal, type:
 ```terminal
 npm run start-server
 ```
-### How to run the dev server
+### How to start the dev server
 In your terminal, type:
 ```terminal
-npm run build-dev
+npm run start-dev
 ```
 
 ### How to run tests

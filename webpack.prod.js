@@ -1,27 +1,18 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 
 module.exports = {
-    mode: "development",
+    mode: "production",
     entry: "./src/client/index.js",
-    devServer: {
-        contentBase: path.join(__dirname, 'dist/dev'),
-        compress: true,
-        hot: true,
-    },
-    devtool: 'inline-source-map',
     output: {
-        path: path.resolve(__dirname, './dist/dev'),
+        path: path.resolve(__dirname, './dist/prod'),
         filename: 'index_bundle.js',
         libraryTarget: "var",
         library: 'Client'
     },
-    plugins: [
-        new CleanWebpackPlugin(),
-        new HtmlWebpackPlugin({
+    plugins: [new HtmlWebpackPlugin({
             template: "./src/client/views/index.html",
             filename: './index.html',
         }
