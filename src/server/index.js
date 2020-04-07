@@ -1,7 +1,7 @@
-const AYLIENTextAPI = require('aylien_textapi');
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const fetch = require('node-fetch');
 const app = express();
 const port = 3000;
 
@@ -13,42 +13,28 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 const AYLIEN_APP_ID = process.env.AYLIEN_APP_ID;
 const AYLIEN_API_KEY = process.env.AYLIEN_API_KEY;
+const baseAPIUrl = 'https://api.aylien.com/api/v1/sentiment';
 
+async function getTextSentiment(text) {
+    console.log("received text to send: ", text);
+    const url = baseAPIUrl + '?text=' + text.text;
 
-// TODO: completely remove the SDK and just use a raw API request.
-
-const textapi = new AYLIENTextAPI({
-    application_id: AYLIEN_APP_ID,
-    application_key: AYLIEN_API_KEY
-});
-
-
-let SENTIMENT = '';
-
-
-function getTextSentiment(text) {
-    return textapi.sentiment({
-        'text': text
-    }, function (error, response) {
-        if (error === null) {
-            SENTIMENT = response;
-            return response;
+    const response = await fetch(url,{
+        method: 'POST',
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin', // include, *same-origin, omit
+        headers: {
+            'X-AYLIEN-TextAPI-Application-Key': AYLIEN_API_KEY,
+            'X-AYLIEN-TextAPI-Application-ID': AYLIEN_APP_ID
         }
     });
+    return await response.json();
 }
 
-
-app.post('/send-text', function(req, res) {
-    const textSentiment = getTextSentiment(req.body);
+app.post('/send-text', async function(req, res) {
+    const textSentiment = await getTextSentiment(req.body);
     console.log('textSentiment to be returned is: ', textSentiment);
-    console.log('SENTIMENT is: ', SENTIMENT);
-    // const polarityConfidence = textSentiment.get('polarity_confidence');
-    // console.log('polarityConfidence: ', polarityConfidence);
-    // const subjectivityConfidence = textSentiment['subjectivity_confidence:'].toString();
-    // textSentiment['polarity_confidence'] = polarityConfidence;
-    // textSentiment['subjectivity_confidence'] = subjectivityConfidence;
-    // console.log('textSentiment is: ', textSentiment);
-    // res.send(textSentiment);
+    res.send(textSentiment);
 });
 
 app.listen(port, () => {
