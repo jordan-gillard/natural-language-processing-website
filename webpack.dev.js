@@ -14,7 +14,7 @@ module.exports = {
     },
     devtool: 'inline-source-map',
     output: {
-        path: path.resolve(__dirname, './dist/dev'),
+        path: path.resolve(__dirname, 'dist/dev'),
         filename: 'index_bundle.js',
         libraryTarget: "var",
         library: 'Client'
