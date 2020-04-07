@@ -2,12 +2,14 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
+var path = require('path');
 const app = express();
 const port = 3000;
 
 app.use(cors({
     'credentials': true
 }));
+app.use(express.static('dist/prod/'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -30,6 +32,11 @@ async function getTextSentiment(text) {
     });
     return await response.json();
 }
+
+app.get('/', (req, res) => {
+    // res.sendFile('dist/dev/index.html', { root: __dirname + '../../..' })
+    res.sendFile('prod/index.html')
+})
 
 app.post('/send-text', async function(req, res) {
     const textSentiment = await getTextSentiment(req.body);

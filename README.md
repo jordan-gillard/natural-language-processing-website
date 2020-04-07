@@ -20,6 +20,7 @@ In your terminal, type:
 ```terminal
 npm run start-backend
 ```
+***Note: by default the backend server serves the index.html file from dev/prod. For development, you should use the dev server below.***
 
 ### How to start the dev server
 In your terminal, type:
