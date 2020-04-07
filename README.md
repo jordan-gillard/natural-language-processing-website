@@ -20,6 +20,7 @@ In your terminal, type:
 ```terminal
 npm run start-backend
 ```
+
 ### How to start the dev server
 In your terminal, type:
 ```terminal
