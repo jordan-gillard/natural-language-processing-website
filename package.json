@@ -52,6 +52,6 @@
     "node-fetch": "^2.6.0",
     "package.json": "^2.0.1",
     "regenerator-runtime": "latest",
-    "workbox-webpack-plugin": "^5.1.2"
+    "workbox-webpack-plugin": "^6.5.4"
   }
 }
